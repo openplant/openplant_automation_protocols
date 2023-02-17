@@ -2,7 +2,7 @@
 The Open Bioeconomy Lab and the Earlham Institute are collaborating to validate and make available a library of protocols and automation scripts for the Opentrons OT2 platform. We hope this collection of protocols can inspire more researchers to adapt their workflows for automation, enabling a higher throughput and efficiency in general molecular biology work. 
 
 ## Getting started
-Follow [Opentrons' official guidance](https://support.opentrons.com/s/ot2-get-started) on setting up the OT2 robot and its software. Here we provide protocols to be run on the  OT-2 robot with the current software version (v6.2.1 as of this writing) with Gen-2 pipettes and modules. All custom labware needed is specified in 'Custom Labware' and will be indicared on specific protocol documents.
+Follow [Opentrons' official guidance](https://support.opentrons.com/s/ot2-get-started) on setting up the OT2 robot and its software. Here we provide protocols to be run on the  OT-2 robot with the current software version (v6.2.1 as of this writing) with GEN2 pipettes and modules. All custom labware needed is specified in 'Custom Labware' and will be indicared on specific protocol documents.
 #### Protocol Designer protocols
 Protocols made with [Opentrons' protocol designer](https://designer.opentrons.com/) can be visualized and edited within the designer. This is the most user-friendly way to interact with the protocols.
 #### Python protocols
