@@ -11,3 +11,4 @@ OT python protocols are made to give nuanced control of robot commands to the us
 These protocols control the robot in a more granular, real-time (and incidentally hands-on) manner. While this allows for quick customization and prototyping, it also requires some understanding of python and Jupyter Notebooks to operate. Refer to [this article](https://support.opentrons.com/s/article/Running-the-robot-using-Jupyter-Notebook) for instructions on how to set up Jupyter Notebook-control on the robot.
 
 ## Licensing
+All code is under an MIT license and all text is under CC0.
