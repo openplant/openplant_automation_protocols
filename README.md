@@ -1,4 +1,4 @@
-# EBTA_WP4-OBL_EI-OT2_protocols
+# OpenPlant Automation Protocols
 The Open Bioeconomy Lab and the Earlham Institute are collaborating to validate and make available a library of protocols and automation scripts for the Opentrons OT2 platform. We hope this collection of protocols can inspire more researchers to adapt their workflows for automation, enabling a higher throughput and efficiency in general molecular biology work. 
 
 ## Getting started
