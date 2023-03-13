@@ -1,3 +1,5 @@
+![OpenPlant Automation Protocols Banner](https://github.com/openplant/openplant_automation_protocols/blob/main/OpenPlant-Automation-Protocols-Banner.png)
+
 # OpenPlant Automation Protocols
 The Open Bioeconomy Lab and the Earlham Institute are collaborating to validate and make available a library of protocols and automation scripts for the Opentrons OT2 platform. We hope this collection of protocols can inspire more researchers to adapt their workflows for automation, enabling a higher throughput and efficiency in general molecular biology work. 
 
