@@ -1,7 +1,7 @@
 ![OpenPlant Automation Protocols Banner](https://github.com/openplant/openplant_automation_protocols/blob/main/OpenPlant-Automation-Protocols-Banner.png)
 
 # OpenPlant Automation Protocols
-The Open Bioeconomy Lab and the Earlham Institute are collaborating to validate and make available a library of protocols and automation scripts for the Opentrons OT2 platform. We hope this collection of protocols can inspire more researchers to adapt their workflows for automation, enabling a higher throughput and efficiency in general molecular biology work. 
+The Open Bioeconomy Lab, University of Cambridge, the Earlham Institute, and the John Innes Centre (as part of the OpenPlant Research Initiative) are collaborating to validate and make available a library of protocols and automation scripts for the Opentrons OT2 platform. We hope this collection of protocols can inspire more researchers to adapt their workflows for automation, enabling a higher throughput and efficiency in general molecular biology work. 
 
 ## Getting started
 Follow [Opentrons' official guidance](https://support.opentrons.com/s/ot2-get-started) on setting up the OT2 robot and its software. Here we provide protocols to be run on the  OT-2 robot with the current software version (v6.2.1 as of this writing) with GEN2 pipettes and modules. All custom labware needed is specified in 'Custom Labware' and will be indicared on specific protocol documents.
