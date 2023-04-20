@@ -225,9 +225,8 @@ a:hover {
 
 .divider {
     width: 40px;
-    height: 4px;
+    height: 0.1rem;
     background: #9f9f9f;
-    border-radius: 30px;
     margin: auto;
     margin-top: 8px;
     margin-bottom: 8px;
