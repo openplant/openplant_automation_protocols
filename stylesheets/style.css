@@ -105,12 +105,12 @@ a:hover {
 
 .sidepanel {
     width: 200px;
-    margin-top: 22px;
-    background-color: #fff;
+    padding: 22px 0px 0px 22px;
+    margin-left: -22px;
+    background-color: #f9f9f9;
     overflow-x: hidden;
     position: fixed;
-    height: 80%;
-
+    height: 100%;
 }
 
 .sidepanel a.title {
