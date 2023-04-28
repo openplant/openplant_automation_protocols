@@ -113,7 +113,7 @@ a:hover {
     height: 100%;
 }
 
-.sidepanel a.title {
+.sidepanel title {
     font-family: 'Noto Serif', serif;
     font-size: 18px;
     font-weight: 600;
