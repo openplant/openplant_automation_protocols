@@ -18,15 +18,13 @@ section: intro
 <p> From here, you can either open pre-written protocols or start writing your own with clicking “New > Python3” on the top right.</p>
 <img src="images/jupyter_3.png">
 <p>Before you can send commands to the robot, you first need to get the OT module, the protocol API and declare your labware, like you would in a normal Python-based protocol. The difference here is that you don’t need a “run” function, since you will be running all code in real time. Start the protocol running the cell:</p>
-<pre><code>
-import opentrons.execute
+<pre><code>import opentrons.execute
 protocol = opentrons.execute.get_protocol_api('2.12')
 protocol.home()
 </code></pre>
 <p></p>
 <p>Then declare your labware (modules, plates, tipracks, pipettes) in a new cell:</p>
-<pre><code>
-samples = protocol.load_labware('opentrons_96_aluminumblock_generic_pcr_strip_200ul', '1')
+<pre><code>samples = protocol.load_labware('opentrons_96_aluminumblock_generic_pcr_strip_200ul', '1')
 tiprack_300 = protocol.load_labware('opentrons_96_tiprack_300ul', '2')
 p300 = protocol.load_instrument('p300_single_gen2', 'left', tip_racks=[tiprack_300])
 </code></pre>
@@ -34,32 +32,27 @@ p300 = protocol.load_instrument('p300_single_gen2', 'left', tip_racks=[tiprack_3
 <h2>Calibration</h2>
 <p>While calibration of labware on Protocol Designer and Python-based protocols is done before each run with the Opentrons app GUI, this is not an option for Jupyter Notebook protocols. For this reason, we have calibration cells for each piece of labware that set an offset and move into that position to test it. This cell’s numbers can then be tweaked, and you can re-run the same cell until you’re happy with the calibration. We recommend you always calibrate you labware before running a protocol and after any labware is moved while performing a protocol.</p>
 <p>At the start of a protocol, you first need to test the offsets of your tipracks. If you’re unsure of which values to use (or if you think starting with all zeroes is going to be significantly off), you can run an empty protocol with the Opentrons App and get your initial calibration offsets from that. You can use those values on the cell below or just start with all zeroes:</p>
-<pre><code>
-tiprack_300.set_offset(x=0.0, y=0.0, z=0.0)
+<pre><code>tiprack_300.set_offset(x=0.0, y=0.0, z=0.0)
 p300.move_to(tiprack_300['A1'].top())
 </code></pre>
 <p></p>
 <img src="images/jupyter_4.png">
 <p>When you’re happy with the positioning, test the calibration by picking up a tip:</p>
-<pre><code>
-p300.pick_up_tip()
+<pre><code>p300.pick_up_tip()
 </code></pre>
 <p></p>
 <p>If a tip is picked up successfully, you can proceed with the calibration of the remaining labware. For our example, this is will only require a single cell, but you will need more if your protocol requires more plates and tubes. Here the objective is to get the tip aligned to the centre of your well and level with the well’s top:</p>
-<pre><code>
-samples.set_offset(x=0.0, y=0.0, z=0.0)
+<pre><code>samples.set_offset(x=0.0, y=0.0, z=0.0)
 p300.move_to(samples['A1'].top())
 </code></pre>
 <p></p>
 <img src="images/jupyter_5.png">
 <p>Sometimes a labware definition doesn’t accurately represent the dimensions of real labware. This is especially impactful in plates with many rows and columns of wells, and a slight difference in expected-to-real well size adds up as you go along the plate. To test for this, you can optionally add a cell to move to the last well and adjust the previous cell accordingly:</p>
-<pre><code>
-p300.move_to(tiprack_300['H12'].top())
+<pre><code>p300.move_to(tiprack_300['H12'].top())
 </code></pre>
 <p></p>
 <p>Once your labware calibration is done, you’re ready to proceed with the rest of the protocol. You can keep using the current tip or choose to return it and start from the next one:</p>
-<pre><code>
-p300.return_tip()
+<pre><code>p300.return_tip()
 </code></pre>
 <p></p>
 <h3>Tips and best practices</h3>
@@ -73,12 +66,10 @@ p300.return_tip()
 <h4>Using custom labware</h4>
 <p>The Jupyter Notebook can’t just pull names from your custom labware list in your OT app like a Python protocol would. Here, you must import the labware files into the OT2 Raspberry Pi and load them into the script with python. We recommend having a folder specifically for custom labware, then you can use the “Upload” button to load any custom labware file into the robot’s system:</p>
 <p>Then, in your script, you must open that file and load the labware definition:</p>
-<pre><code>
-import json
+<pre><code>import json
 </code></pre>
 <p></p>
-<pre><code>
-with open(' custom_labware/custom_96_wellplate_flat.json ') as labware_file:
+<pre><code>with open(' custom_labware/custom_96_wellplate_flat.json ') as labware_file:
     labware_def = json.load(labware_file)
     plate_96 = protocol.load_labware_from_definition(labware_def, 1)
 </code></pre>
