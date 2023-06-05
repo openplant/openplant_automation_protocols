@@ -18,35 +18,80 @@ section: intro
 <p> From here, you can either open pre-written protocols or start writing your own with clicking “New > Python3” on the top right.</p>
 <img src="images/jupyter_3.png">
 <p>Before you can send commands to the robot, you first need to get the OT module, the protocol API and declare your labware, like you would in a normal Python-based protocol. The difference here is that you don’t need a “run” function, since you will be running all code in real time. Start the protocol running the cell:</p>
+<code>
+import opentrons.execute
+protocol = opentrons.execute.get_protocol_api('2.12')
+protocol.home()
+<\code>
 <p></p>
 <p>Then declare your labware (modules, plates, tipracks, pipettes) in a new cell:</p>
+<code>
+samples = protocol.load_labware('opentrons_96_aluminumblock_generic_pcr_strip_200ul', '1')
+tiprack_300 = protocol.load_labware('opentrons_96_tiprack_300ul', '2')
+p300 = protocol.load_instrument('p300_single_gen2', 'left', tip_racks=[tiprack_300])
+<\code>
 <p></p>
 <h2>Calibration</h2>
 <p>While calibration of labware on Protocol Designer and Python-based protocols is done before each run with the Opentrons app GUI, this is not an option for Jupyter Notebook protocols. For this reason, we have calibration cells for each piece of labware that set an offset and move into that position to test it. This cell’s numbers can then be tweaked, and you can re-run the same cell until you’re happy with the calibration. We recommend you always calibrate you labware before running a protocol and after any labware is moved while performing a protocol.</p>
 <p>At the start of a protocol, you first need to test the offsets of your tipracks. If you’re unsure of which values to use (or if you think starting with all zeroes is going to be significantly off), you can run an empty protocol with the Opentrons App and get your initial calibration offsets from that. You can use those values on the cell below or just start with all zeroes:</p>
+<code>
+tiprack_300.set_offset(x=0.0, y=0.0, z=0.0)
+p300.move_to(tiprack_300['A1'].top())
+<\code>
 <p></p>
-<img src="images/jupyter_4.jpg">
+<img src="images/jupyter_4.png">
 <p>When you’re happy with the positioning, test the calibration by picking up a tip:</p>
+<code>
+p300.pick_up_tip()
+<\code>
 <p></p>
 <p>If a tip is picked up successfully, you can proceed with the calibration of the remaining labware. For our example, this is will only require a single cell, but you will need more if your protocol requires more plates and tubes. Here the objective is to get the tip aligned to the centre of your well and level with the well’s top:</p>
+<code>
+samples.set_offset(x=0.0, y=0.0, z=0.0)
+p300.move_to(samples['A1'].top())
+<\code>
 <p></p>
-<img src="images/jupyter_5.jpg">
+<img src="images/jupyter_5.png">
 <p>Sometimes a labware definition doesn’t accurately represent the dimensions of real labware. This is especially impactful in plates with many rows and columns of wells, and a slight difference in expected-to-real well size adds up as you go along the plate. To test for this, you can optionally add a cell to move to the last well and adjust the previous cell accordingly:</p>
+<code>
+p300.move_to(tiprack_300['H12'].top())
+<\code>
 <p></p>
 <p>Once your labware calibration is done, you’re ready to proceed with the rest of the protocol. You can keep using the current tip or choose to return it and start from the next one:</p>
+<code>
+p300.return_tip()
+<\code>
 <p></p>
 <h3>Tips and best practices</h3>
 <h4>Running protocols</h4>
-<p>Do not rely on the “Run All” commands at the top menu bar. Calibration steps and others may require human interaction and the code will not stop and wait in between cells.</p>
-<p>When calibrating labware, always make sure there is a tip attached to the pipette. Without a tip, the robot will interpret the end of the nozzle as it’s extremity for the move_to() command and will try to align it with your wells. This can cause bumping with other labware and thus damage the equipment.</p>
-<p>If something unexpected happens, it can be useful to use the protocol.home() command to reset the robot to a neutral state (starting position and no tips/liquid).</p>
-<p>If you close the Notebook or restart it’s Kernel in any way, the robot will forget it’s position, any labware and tip tracking. We recommend keeping the notebook open for the duration of the protocol.</p>
+<p>human interaction and the code will not stop and wait in between cells.</p>
+<p>pret the end of the nozzle as it’s extremity for the move_to() command and will try to align it with your wells. This can cause bumping with other labware and thus damage the equipment.</p>
+<p> (starting position and no tips/liquid).</p>
+<p>t’s position, any labware and tip tracking. We recommend keeping the notebook open for the duration of the protocol.</p>
 <h4>Communicating with users</h4>
-<p>While protocols in this environment can’t get GUI messages, you can still communicate important notes and steps to users with Markdown cells or commented lines. To make comments in the code use # prefacing a single line or use triple quotes flanking multiple lines. To change a cell from code to markdown, select that cell and choose “Markdown” at the top menu bar. Refer to a <a href="https://notebook.community/tschinz/iPython_Workspace/00_Admin/CheatSheet/Markdown%20CheatSheet">Jupyter Notebooks Markdown cheatsheet</a> for a quick reference on how to write on these cells.</p>
+<p> with Markdown cells or commented lines. To make comments in the code use # prefacing a single line or use triple quotes flanking multiple lines. To change a cell from code to markdown, select that cell and choose “Markdown” at the top menu bar. Refer to a <a href="https://notebook.community/tschinz/iPython_Workspace/00_Admin/CheatSheet/Markdown%20CheatSheet">Jupyter Notebooks Markdown cheatsheet</a> for a quick reference on how to write on these cells.</p>
 <h4>Using custom labware</h4>
-<p>The Jupyter Notebook can’t just pull names from your custom labware list in your OT app like a Python protocol would. Here, you must import the labware files into the OT2 Raspberry Pi and load them into the script with python. We recommend having a folder specifically for custom labware, then you can use the “Upload” button to load any custom labware file into the robot’s system:</p>
-<p>Then, in your script, you must open that file and load the labware definition:</p>
+<p>must import the labware files into the OT2 Raspberry Pi and load them into the script with python. We recommend having a folder specifically for custom labware, then you can use the “Upload” button to load any custom labware file into the robot’s system:</p>
 <p></p>
-<p>Note you will have to import the json library at the start of your script and fill in your file’s path appropriately (the quotation marks are necessary).</p>
+<p></p>
+<p></p>
+<p>ese are examples of lists:</p>
+<ul>
+<li>First element</li>
+<li>second element</li>
+<li>third element</li>
+<li>weird <a href="http://example.com/">hyperlink</a> element</li>
+<li>fifth element</li>
+</ul>
+<p></p>
+<ul>
+<li>wooo ordered list</li>
+<li>so crazy</li>
+<li>maybe it will choke now</li>
+</ul>
+<p></p>
+<ul>
+<li>first level</li>
+<li>second level</li>
 </div>
 {% include footer.html %}
