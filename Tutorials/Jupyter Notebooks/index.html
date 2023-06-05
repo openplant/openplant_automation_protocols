@@ -64,34 +64,25 @@ p300.return_tip()
 <p></p>
 <h3>Tips and best practices</h3>
 <h4>Running protocols</h4>
-<p>human interaction and the code will not stop and wait in between cells.</p>
-<p>pret the end of the nozzle as it’s extremity for the move_to() command and will try to align it with your wells. This can cause bumping with other labware and thus damage the equipment.</p>
-<p> (starting position and no tips/liquid).</p>
-<p>t’s position, any labware and tip tracking. We recommend keeping the notebook open for the duration of the protocol.</p>
+<p>Do not rely on the “Run All” commands at the top menu bar. Calibration steps and others may require human interaction and the code will not stop and wait in between cells.</p>
+<p>When calibrating labware, always make sure there is a tip attached to the pipette. Without a tip, the robot will interpret the end of the nozzle as it’s extremity for the move_to() command and will try to align it with your wells. This can cause bumping with other labware and thus damage the equipment.</p>
+<p>If something unexpected happens, it can be useful to use the protocol.home() command to reset the robot to a neutral state (starting position and no tips/liquid).</p>
+<p>If you close the Notebook or restart it’s Kernel in any way, the robot will forget it’s position, any labware and tip tracking. We recommend keeping the notebook open for the duration of the protocol.</p>
 <h4>Communicating with users</h4>
-<p> with Markdown cells or commented lines. To make comments in the code use # prefacing a single line or use triple quotes flanking multiple lines. To change a cell from code to markdown, select that cell and choose “Markdown” at the top menu bar. Refer to a <a href="https://notebook.community/tschinz/iPython_Workspace/00_Admin/CheatSheet/Markdown%20CheatSheet">Jupyter Notebooks Markdown cheatsheet</a> for a quick reference on how to write on these cells.</p>
+<p>While protocols in this environment can’t get GUI messages, you can still communicate important notes and steps to users with Markdown cells or commented lines. To make comments in the code use # prefacing a single line or use triple quotes flanking multiple lines. To change a cell from code to markdown, select that cell and choose “Markdown” at the top menu bar. Refer to a <a href="https://notebook.community/tschinz/iPython_Workspace/00_Admin/CheatSheet/Markdown%20CheatSheet">Jupyter Notebooks Markdown NonecheatsheetNone</a> for a quick reference on how to write on these cells.</p>
 <h4>Using custom labware</h4>
-<p>must import the labware files into the OT2 Raspberry Pi and load them into the script with python. We recommend having a folder specifically for custom labware, then you can use the “Upload” button to load any custom labware file into the robot’s system:</p>
+<p>The Jupyter Notebook can’t just pull names from your custom labware list in your OT app like a Python protocol would. Here, you must import the labware files into the OT2 Raspberry Pi and load them into the script with python. We recommend having a folder specifically for custom labware, then you can use the “Upload” button to load any custom labware file into the robot’s system:</p>
+<p>Then, in your script, you must open that file and load the labware definition:</p>
+<code>
+import json
+</code>
 <p></p>
+<code>
+with open(' custom_labware/custom_96_wellplate_flat.json ') as labware_file:
+    labware_def = json.load(labware_file)
+    plate_96 = protocol.load_labware_from_definition(labware_def, 1)
+</code>
 <p></p>
-<p></p>
-<p>ese are examples of lists:</p>
-<ul>
-<li>First element</li>
-<li>second element</li>
-<li>third element</li>
-<li>weird <a href="http://example.com/">hyperlink</a> element</li>
-<li>fifth element</li>
-</ul>
-<p></p>
-<ul>
-<li>wooo ordered list</li>
-<li>so crazy</li>
-<li>maybe it will choke now</li>
-</ul>
-<p></p>
-<ul>
-<li>first level</li>
-<li>second level</li>
+<p>Note you will have to import the json library at the start of your script and fill in your file’s path appropriately (the quotation marks are necessary).</p>
 </div>
 {% include footer.html %}
