@@ -22,14 +22,14 @@ section: intro
 import opentrons.execute
 protocol = opentrons.execute.get_protocol_api('2.12')
 protocol.home()
-<\code>
+</code>
 <p></p>
 <p>Then declare your labware (modules, plates, tipracks, pipettes) in a new cell:</p>
 <code>
 samples = protocol.load_labware('opentrons_96_aluminumblock_generic_pcr_strip_200ul', '1')
 tiprack_300 = protocol.load_labware('opentrons_96_tiprack_300ul', '2')
 p300 = protocol.load_instrument('p300_single_gen2', 'left', tip_racks=[tiprack_300])
-<\code>
+</code>
 <p></p>
 <h2>Calibration</h2>
 <p>While calibration of labware on Protocol Designer and Python-based protocols is done before each run with the Opentrons app GUI, this is not an option for Jupyter Notebook protocols. For this reason, we have calibration cells for each piece of labware that set an offset and move into that position to test it. This cell’s numbers can then be tweaked, and you can re-run the same cell until you’re happy with the calibration. We recommend you always calibrate you labware before running a protocol and after any labware is moved while performing a protocol.</p>
@@ -37,30 +37,30 @@ p300 = protocol.load_instrument('p300_single_gen2', 'left', tip_racks=[tiprack_3
 <code>
 tiprack_300.set_offset(x=0.0, y=0.0, z=0.0)
 p300.move_to(tiprack_300['A1'].top())
-<\code>
+</code>
 <p></p>
 <img src="images/jupyter_4.png">
 <p>When you’re happy with the positioning, test the calibration by picking up a tip:</p>
 <code>
 p300.pick_up_tip()
-<\code>
+</code>
 <p></p>
 <p>If a tip is picked up successfully, you can proceed with the calibration of the remaining labware. For our example, this is will only require a single cell, but you will need more if your protocol requires more plates and tubes. Here the objective is to get the tip aligned to the centre of your well and level with the well’s top:</p>
 <code>
 samples.set_offset(x=0.0, y=0.0, z=0.0)
 p300.move_to(samples['A1'].top())
-<\code>
+</code>
 <p></p>
 <img src="images/jupyter_5.png">
 <p>Sometimes a labware definition doesn’t accurately represent the dimensions of real labware. This is especially impactful in plates with many rows and columns of wells, and a slight difference in expected-to-real well size adds up as you go along the plate. To test for this, you can optionally add a cell to move to the last well and adjust the previous cell accordingly:</p>
 <code>
 p300.move_to(tiprack_300['H12'].top())
-<\code>
+</code>
 <p></p>
 <p>Once your labware calibration is done, you’re ready to proceed with the rest of the protocol. You can keep using the current tip or choose to return it and start from the next one:</p>
 <code>
 p300.return_tip()
-<\code>
+</code>
 <p></p>
 <h3>Tips and best practices</h3>
 <h4>Running protocols</h4>
