@@ -44,10 +44,7 @@
             <div class="right-col">
                 
                 <p><b>OpenPlant Automation Protocols</b></p>
-                <p>url: {{ page.url }}</p>
-                <p>id: {{ page.id }}</p>
-                <p>dir: {{ page.dir }}</p>
-                <p>path: {{ page.path }}</p>
+                {% include breadcrumbs.html %}
                 <div class='divider'></div>
                 
                 {{ content }}
