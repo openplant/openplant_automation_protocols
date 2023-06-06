@@ -35,6 +35,10 @@ p {
     line-height: 26px;
 }
 
+p.metadata{
+    color: #c0c0c0;
+}
+
 pre {
     background-color: #f1f1f1f1;
     outline-style: solid;
