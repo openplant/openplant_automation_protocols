@@ -6,11 +6,11 @@ The Open Bioeconomy Lab, University of Cambridge, the Earlham Institute, and the
 The documents and files in this repository are also available in webpage format. **[Visit it here](https://openplant.github.io/openplant_automation_protocols/)**
 
 ## Getting started
-Follow [Opentrons' official guidance](https://support.opentrons.com/s/ot2-get-started) on setting up the OT2 robot and its software. Here we provide protocols to be run on the  OT-2 robot with the current software version (v6.2.1 as of this writing) with GEN2 pipettes and modules. All custom labware needed is specified in 'Custom Labware' and will be indicared on specific protocol documents.
+Follow [Opentrons' official guidance](https://support.opentrons.com/s/ot2-get-started) on setting up the OT2 robot and its software. Here we provide protocols to be run on the OT-2 robot with the current software version (v6.2.1 as of this writing) with GEN2 pipettes and modules. All custom labware needed is specified in 'Custom Labware' and will be indicated on specific protocol documents.
 #### Protocol Designer protocols
 Protocols made with [Opentrons' protocol designer](https://designer.opentrons.com/) can be visualized and edited within the designer. This is the most user-friendly way to interact with the protocols.
 #### Python protocols
-OT python protocols are made to give nuanced control of robot commands to the user, be easily customisable, and integrate the benefits of working with the python environment while still enabling the potocols to be run by researchers without programming experience. See the [Opentrons python API documentation](https://docs.opentrons.com/v2/) for reference on the code itself.
+OT python protocols are made to give nuanced control of robot commands to the user, be easily customisable, and integrate the benefits of working with the python environment while still enabling the protocols to be run by researchers without programming experience. See the [Opentrons python API documentation](https://docs.opentrons.com/v2/) for reference on the code itself.
 #### Jupyter notebooks
 These protocols control the robot in a more granular, real-time (and incidentally hands-on) manner. While this allows for quick customization and prototyping, it also requires some understanding of python and Jupyter Notebooks to operate. Refer to [this article](https://support.opentrons.com/s/article/Running-the-robot-using-Jupyter-Notebook) for instructions on how to set up Jupyter Notebook-control on the robot.
 
