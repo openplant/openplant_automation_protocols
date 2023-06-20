@@ -4,7 +4,7 @@ title: Running and Editing Python Scripts
 ---
 
 <p class = "metadata">Felipe Xavier Buson</p>
-<p class = "metadata">19 June 2023</p>
+<p class = "metadata">20 June 2023</p>
 <a href="basic_py.pdf">PDF</a>
 <h1>Running and Editing Python Protocols</h1>
 <h2>Introduction</h2>
@@ -22,7 +22,7 @@ title: Running and Editing Python Scripts
 <p>Before installing any packages, you could already inspect the protocol’s code with IDLE (Python’s Integrated Development and Learning Environment). To do that, right-click the protocol file and choose Edit with IDLE > Edit with IDLE [your python version]. You should see the protocol in the IDLE window:</p>
 <img src="images/basic_py_2.png">
 <p>However, this running this script won’t output anything. It just lets the robot or simulator know what instructions to perform. To simulate the protocol, we can go with one of two methods. </p>
-<p>First, we can run the simulation from the command line. Open your Command Prompt, navigate to the folder where our example protocol is located (you can do this by running “cd [folder to change to]”) and run “py -m opentrons.simulate __________.py”. You will see each step of the protocol in the output:</p>
+<p>First, we can run the simulation from the command line. Open your Command Prompt, navigate to the folder where our example protocol is located (you can do this by running “cd [folder to change to]”) and run “py -m opentrons.simulate Glycerol_Stocks.py”. You will see each step of the protocol in the output:</p>
 <img src="images/basic_py_3.png">
 <p>In this case we included the option “-3.10” because we have other Python versions installed, so needed to specify which one to use.</p>
 <p>Another option to run the simulation is through a Python Environment like IDLE. On the same folder as our example protocol, create a file named “simulator.py” and open it with IDLE. In it, write the code below and run:</p>
@@ -88,7 +88,7 @@ metadata = {
 destination_tubes = protocol.load_labware(' nest_96_wellplate_2ml_deep ', '3')
 </code></pre>
 <p>However, if our labware is not on Opentrons’ list already, we’ll have to use a custom labware file (using similar labware from the list might work but it’s not recommended, since can lead to issues with calibration when running protocols). </p>
-<p>Go to _____ and download the ________.json file. In the Opentrons app, you can add custom labware files by going to Labware > Import and picking the file you want to use. You’ll be able to see the new labware by filtering the labware list by “Custom Labware”. In case you want to design or tweak labware definition files for yourself, check out the tutorial on how to make custom labware files.</p>
+<p>Go to the custom labware pages on this website and download one of the files. In the Opentrons app, you can add custom labware files by going to “Labware > Import” and picking the file you want to use. You’ll be able to see the new labware by filtering the labware list by “Custom Labware”. In case you want to design or tweak labware definition files for yourself, check out the tutorial on how to make custom labware files.</p>
 <h3>Changing volumes and well positions</h3>
 <p>In case you want to transfer different amounts of liquid within the protocol, or to different wells, you will need to change the portion of the protocol that defines the robot commands. For example, if you wanted to use 0.15mL of glycerol and 0.35mL of culture, and use wells A2 to D2 of the destination instead, you would need to change the script accordingly:</p>
 <pre><code># Well Location set-up
