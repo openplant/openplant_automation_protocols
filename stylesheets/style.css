@@ -44,6 +44,7 @@ pre {
     outline-style: solid;
     outline-width: 2px;
     outline-color: #cccccc;
+    white-space: pre-wrap; 
 }
 
 a {
