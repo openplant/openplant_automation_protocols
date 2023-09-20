@@ -4,7 +4,7 @@ title: Using Jupyter Notebooks with OT2
 ---
 
 <p class = "metadata">Felipe Xavier Buson</p>
-<p class = "metadata">06 June 2023</p>
+<p class = "metadata">20 September 2023</p>
 <a href="jupyter.pdf">PDF</a>
 <h1>Using Jupyter Notebooks with OT2</h1>
 <h2>Introduction</h2>
@@ -64,16 +64,20 @@ p300.move_to(samples['A1'].top())
 <p>If something unexpected happens, it can be useful to use the protocol.home() command to reset the robot to a neutral state (starting position and no tips/liquid).</p>
 <p>If you close the Notebook or restart it’s Kernel in any way, the robot will forget it’s position, any labware and tip tracking. We recommend keeping the notebook open for the duration of the protocol.</p>
 <h4>Communicating with users</h4>
-<p>While protocols in this environment can’t get GUI messages, you can still communicate important notes and steps to users with Markdown cells or commented lines. To make comments in the code use # prefacing a single line or use triple quotes flanking multiple lines. To change a cell from code to markdown, select that cell and choose “Markdown” at the top menu bar. Refer to a <a href="https://notebook.community/tschinz/iPython_Workspace/00_Admin/CheatSheet/Markdown%20CheatSheet">Jupyter Notebooks Markdown NonecheatsheetNone</a> for a quick reference on how to write on these cells.</p>
+<p>While protocols in this environment can’t get GUI messages, you can still communicate important notes and steps to users with Markdown cells or commented lines. To make comments in the code use # prefacing a single line or use triple quotes flanking multiple lines. To change a cell from code to markdown, select that cell and choose “Markdown” at the top menu bar. Refer to a <a href="https://notebook.community/tschinz/iPython_Workspace/00_Admin/CheatSheet/Markdown%20CheatSheet">Jupyter Notebooks Markdown cheatsheet</a> for a quick reference on how to write on these cells.</p>
 <h4>Using custom labware</h4>
 <p>The Jupyter Notebook can’t just pull names from your custom labware list in your OT app like a Python protocol would. Here, you must import the labware files into the OT2 Raspberry Pi and load them into the script with python. We recommend having a folder specifically for custom labware, then you can use the “Upload” button to load any custom labware file into the robot’s system:</p>
 <p>Then, in your script, you must open that file and load the labware definition:</p>
 <pre><code>import json
 </code></pre>
-<p></p>
 <pre><code>with open(' custom_labware/custom_96_wellplate_flat.json ') as labware_file:
     labware_def = json.load(labware_file)
     plate_96 = protocol.load_labware_from_definition(labware_def, 1)
 </code></pre>
 <p></p>
 <p>Note you will have to import the json library at the start of your script and fill in your file’s path appropriately (the quotation marks are necessary).</p>
+<h4>Using the thermocycler module</h4>
+<p>Some features of the robot cannot be used by the jupyter notebook immediately because they’re already accessible from the app and can only be accessed from one place at a time. These features include the robot lights, and anything controlled by buttons, including the thermocycler lid opening and closing.</p>
+<p>To gain access to these features (and to run protocols that require them), you will need to shut the access of the opentrons app to your robot temporarily. To do this, open a new terminal on the Jupyter Notebook page by clicking “New > Terminal” on the top-right.</p>
+<img src="images/jupyter_6.png">
+<p>Then, on the terminal, run “systemctl stop opentrons-robot-server”. This will make the robot show as unavailable on the app, but we can still access it through a notebook. When you’re done with a protocol and want to go back to using the app, go back to the terminal and run “systemctl start opentrons-robot-server”.</p>
