@@ -55,6 +55,22 @@ a:hover {
     text-decoration: underline;
 }
 
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th {
+    background-color: #f9f9f9;
+    border: 1px solid #aaa;
+    padding: 10px;    
+}
+
+td {
+    border: 1px solid #aaa;
+    padding: 10px;    
+}
+
 .navbar {
     overflow: hidden;
     background-color: #0098f1;
