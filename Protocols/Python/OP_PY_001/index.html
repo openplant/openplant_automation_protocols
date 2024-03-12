@@ -1,0 +1,35 @@
+---
+layout: default
+title: Glycerol stocks from 96-well cultures
+---
+
+<p class = "metadata">Felipe Xavier Buson</p>
+<p class = "metadata">12 March 2024</p>
+<p class = "metadata">OP_PY_001 v1.0</p>
+
+<h1>Glycerol stocks from 96-well cultures</h1>
+<h2>Description</h2>
+<p>This protocol creates glycerol stocks on a 96-well plate format out of cultures on a 96-deepwell plate.</p>
+<p>Refer to our tutorial for simulating and ammending python protocols</p>
+
+<h2>Labware and Liquids</h2>
+<img src="OP_PY_001-deckmap.png", style="width: 80%">
+<ul>
+    <li>Right mount: An 8-channel p300 pipette</li>
+    <li>Slot 1: Plate with bacterial cultures (96-deepwell, 0,5mL per well)</li>
+    <li>Slot 4: Reservoir with 50% glycerol</li>
+    <li>Slot 7: Tiprack for p300</li>
+    <li>Slot 2, 3, 5 and 6: Destination plates</li>
+</ul>
+
+<h2>Execution</h2>
+<ul>
+    <li>Before importing the protocol in your Opentrons app, open the file and look for the line "cols_no = 0". Change the number to your desired number of columns used for this protocol</li>
+    <li>Import the protocol into your Opentrons app</li>
+    <li>Set up the deck as described above</li>
+    <li>Run the protocol</li>
+</ul>
+<h2>Script</h2>
+<p><a href = "OP_PY_001.py">Glycerol stocks from 96-well cultures</a></p>
+<h2>Tips and best practices</h2>
+<p>Monitor the robot for the first few time you run this protocol</p>
