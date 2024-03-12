@@ -1,35 +1,37 @@
 ---
 layout: default
-title: PCR Purification Using Magnetic Beads
+title: Transformation Spreading to 6 Well Plates
 ---
 
 <p class = "metadata">Lesley Ives</p>
-<p class = "metadata">11 March 2024</p>
-<p class = "metadata">OP_PD_002 v1.0</p>
-<h1>PCR Purification Using Magnetic Beads</h1>
+<p class = "metadata">12 March 2024</p>
+<p class = "metadata">OP_PD_004 v1.0</p>
+<h1>Transformation Spreading to 6 Well Plates</h1>
 <h2>Description</h2>
-<p>This protocol purifies a rack of 96 PCR samples utilising magnetic beads and the magnetic module.</p>
+<p>This set of protocols transfers samples from a 96 well plate to 6-well plates containing solid media.</p>
+<p>There are four separate protocols which carry out the transfer of 24 samples to four 6-well plates, resulting in 96 samples being transferred to sixteen 6-well plates.</p>
 
 <h2>Labware and Liquids</h2>
-<img src="OP_PD_002-deckmap.png", style="width: 80%">
+<img src="OP_PD_004-deckmap.png", style="width: 80%">
 <ul>
-    <li>Left mount: An 8-channel p20 pipette (GEN2)</li>
-    <li>Right mount: An 8-channel p300 pipette (GEN2)</li>
-    <li>Slot 1: Reservoir to collect liquid waste</li>
-    <li>Slot 4: Magnetic module (GEN2) with 96 well PCR plate containing 20µl of PCR product</li>
-    <li>Slot 7: Twelve channel reservoir containing beads, ethanol wash and elution buffer</li>
-    <li>Slots 2, 3, 5, 6, 8, and 9: 300µl Tip Racks</li>
-    <li>Slot 11: 20µl Tip Rack</li>
+    <li>Left mount: An 8-channel p300 pipette (GEN2)</li>
+    <li>Slot 1, 4, 7 and 10: 6-well culture plates containing solid media</li>
+    <li>Slot 3: 300µl Tip Rack</li>
+    <li>Slot 6: 96 Well PCR Plate containing the samples</li>
 </ul>
 
 <h2>Execution</h2>
 <ul>
-    <li>Set up the deck as described above</li>
-    <li>Run the protocol</li>
-    <li>The protocol contains pauses and manual steps to empty the waste box and check the beads.</li>
+    <li>Select the correct protocol for the set of samples requiring transfer.</li>
+    <li>Set up the deck as described above and as in the initial protocol pause step.</li>
+    <li>Run the protocol.</li>
 </ul>
 <h2>Script</h2>
-<p><a href = "{{site.baseurl}}/Protocols/Jupyter/OP_PD_002/OP_PD_002.json">PCR Purification Using Magnetic Beads</a></p>
+<p><a href = "{{site.baseurl}}/Protocols/Jupyter/OP_PD_004/OP_PD_004_1.json">Transformation Spreading to 6 Well Plates - Script 1</a></p>
+<p><a href = "{{site.baseurl}}/Protocols/Jupyter/OP_PD_004/OP_PD_004_2.json">Transformation Spreading to 6 Well Plates - Script 2</a></p>
+<p><a href = "{{site.baseurl}}/Protocols/Jupyter/OP_PD_004/OP_PD_004_3.json">Transformation Spreading to 6 Well Plates - Script 3</a></p>
+<p><a href = "{{site.baseurl}}/Protocols/Jupyter/OP_PD_004/OP_PD_004_4.json">Transformation Spreading to 6 Well Plates - Script 4</a></p>
 <h2>Tips and best practices</h2>
 <p>Carry out a test run of the protocol using the labware and water to ensure that the positioning of labware and tips is suitable. Re-calibration of the deck or labware may be required.</p>
-<p>Ensure the beads are fully dry prior to elution to prevent any ethanol carry-over into the final elution.</p>
+<p>Label the 6-well plates clearly to ensure the traceability of the samples from the PCR plate to the 6-well plates.</p>
+<p>Following completion of the protocol(s) gently roll the plates to ensure that the sample is spread across the solid media.</p>
