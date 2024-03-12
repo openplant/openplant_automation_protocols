@@ -1,35 +1,39 @@
 ---
 layout: default
-title: PCR Purification Using Magnetic Beads
+title: Bacterial Transformation Protocol
 ---
 
 <p class = "metadata">Lesley Ives</p>
-<p class = "metadata">11 March 2024</p>
+<p class = "metadata">12 March 2024</p>
 <p class = "metadata">OP_PD_005 v1.0</p>
-<h1>PCR Purification Using Magnetic Beads</h1>
+<h1>Bacterial Transformation Protocol</h1>
 <h2>Description</h2>
-<p>This protocol purifies a rack of 96 PCR samples utilising magnetic beads and the magnetic module.</p>
+<p>This set of protocols carries out bacterial transformation of 384 low volume samples.</p>
+<p>There are four separate protocols which carry out the transformation of 96 samples from a specific quarter of the 384 well plate.</p>
 
 <h2>Labware and Liquids</h2>
 <img src="OP_PD_005-deckmap.png", style="width: 80%">
 <ul>
-    <li>Left mount: An 8-channel p20 pipette (GEN2)</li>
-    <li>Right mount: An 8-channel p300 pipette (GEN2)</li>
-    <li>Slot 1: Reservoir to collect liquid waste</li>
-    <li>Slot 4: Magnetic module (GEN2) with 96 well PCR plate containing 20µl of PCR product</li>
-    <li>Slot 7: Twelve channel reservoir containing beads, ethanol wash and elution buffer</li>
-    <li>Slots 2, 3, 5, 6, 8, and 9: 300µl Tip Racks</li>
-    <li>Slot 11: 20µl Tip Rack</li>
+    <li>Right mount: An 8-channel p20 pipette (GEN2)</li>
+    <li>Slot 1: 96 well PCR plate containing out-growth media</li>
+    <li>Slots 3, 6, 9: 20µl Tip Racks</li>
+    <li>Slot 4: Temperature module (GEN2) with 384 PCR plate containing samples for transformation</li>
+    <li>Slot 5: 12-channel reservoir containing out-growth media</li>
+    <li>Slot 7: Aluminium block containing a strip of PCR tubes with competent cells in column 1</li>
 </ul>
 
 <h2>Execution</h2>
 <ul>
-    <li>Set up the deck as described above</li>
-    <li>Run the protocol</li>
-    <li>The protocol contains pauses and manual steps to empty the waste box and check the beads.</li>
+    <li>Select the correct protocol for the set of samples requiring transformation.</li>
+    <li>Set up the deck as described above and as in the initial protocol pause step.</li>
+    <li>Run the protocol.</li>
+    <li>There are various pause steps and manual steps requiring immediate interaction with the instrument.</li>
 </ul>
 <h2>Script</h2>
-<p><a href = "OP_PD_005.json">PCR Purification Using Magnetic Beads</a></p>
+<p><a href = "OP_PD_005_1.json">Bacterial Transformation Protocol - Script 1</a></p>
+<p><a href = "OP_PD_005_2.json">Bacterial Transformation Protocol - Script 2</a></p>
+<p><a href = "OP_PD_005_3.json">Bacterial Transformation Protocol - Script 3</a></p>
+<p><a href = "OP_PD_005_4.json">Bacterial Transformation Protocol - Script 4</a></p>
 <h2>Tips and best practices</h2>
 <p>Carry out a test run of the protocol using the labware and water to ensure that the positioning of labware and tips is suitable. Re-calibration of the deck or labware may be required.</p>
-<p>Ensure the beads are fully dry prior to elution to prevent any ethanol carry-over into the final elution.</p>
+<p>Ensure the aluminium block has been placed in the freezer prior to being placed on the deck. This will keep the competent cells cold and prevent reduced efficiency of the process.</p>
